@@ -3,16 +3,22 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_CREDENTIALS = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    'http://localhost:5173'
 ]
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:5173',
 ]
+
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

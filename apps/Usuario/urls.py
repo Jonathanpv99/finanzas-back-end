@@ -8,5 +8,5 @@ urlpatterns = [
     # URL para operaciones específicas de un usuario (obtener detalles, actualizar, eliminar)
     path('usuarios/<int:pk>/', usuario_detail_api_view, name='usuario_detail_api'),
 
-    path('login/', login_api_view, name='login_api')
+    path('/login', login_api_view, name='login_api')
 ]
