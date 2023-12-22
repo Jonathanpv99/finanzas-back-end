@@ -5,10 +5,13 @@ from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import MultiPartParser, JSONParser
 from apps.Usuario.models import Usuario
 from apps.Usuario.serializers import UsuarioSerializer
+
+
 # Primera vista: Para listar y crear usuarios
 @api_view(['GET', 'POST'])
 @parser_classes([MultiPartParser, JSONParser])
 def usuario_api_view(request):
+    print( request )
     # Listar usuarios
     if request.method == 'GET':
         usuario = Usuario.objects.all()  # Obtener todos los usuarios
@@ -22,6 +25,7 @@ def usuario_api_view(request):
             return Response({'message': 'Usuario creado correctamente!'}, status=status.HTTP_201_CREATED) # Respuesta de éxito
         return Response(usuario_serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Manejo de errores
     
+
 # Segunda vista: Para manejar un usuario específico (listar, actualizar, eliminar)
 @api_view(['GET','PUT','DELETE'])
 @parser_classes([MultiPartParser, JSONParser])
@@ -55,6 +59,7 @@ def usuario_detail_api_view(request, pk=None):
 @api_view(['POST'])
 @parser_classes([MultiPartParser, JSONParser])
 def login_api_view(request):
+    print(request)
     rfc = request.data['rfc']
     usr = Usuario.objects.filter(rfc=rfc).first()
     if usr:

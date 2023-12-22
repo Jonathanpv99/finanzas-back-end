@@ -4,6 +4,10 @@ from .base import *
 DEBUG = True
 
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Cambia esto con tu origen permitido
+]
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
@@ -17,8 +21,6 @@ ALLOWED_HOSTS = [
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:5173',
 ]
-
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
